@@ -17,14 +17,13 @@ export const App = () => {
     e.preventDefault();
     const resp = await login(username, password);
     if(resp.user){
-      console.log(resp)
-      (
-        ()=> dispatch({
-          type: '[Auth] login',
-          payload: resp
-        })
-      )();
 
+      dispatch({
+        type: types.LOGIN,
+        payload: resp
+      })
+      
+      alert('Bienvenid@!!!')
       reset()
     } else {
       alert('Algo salió mal')
